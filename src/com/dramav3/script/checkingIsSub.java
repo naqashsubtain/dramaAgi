@@ -31,7 +31,7 @@ public class checkingIsSub extends AbstractBaseAgiScript {
 				logger.info("Cellno in colcal" + cellno + " is valid subsciber");
 				return;
 			}
-			 channel.setVariable("IS_SUB", "YES");
+			 channel.setVariable("IS_SUB", "NO");
 			 
 			//channel.verbose("Customer: " + cellno + ", is not a sunscriber", 0);
 		} catch (Exception e) {

@@ -125,7 +125,7 @@ public class GetingStories extends AbstractBaseAgiScript {
 				}
 				
 				
-				String mindate= (String) datemap.get("start_date");
+				String mindate= new String( (byte[])datemap.get("start_date"));
 				logger.info(cellno+"Start date is " + mindate);
 				
 				List<Map<String, Object>> result = DBHelper.getInstance().query("select * from drama_content where cat = ? and date(dt)=?  order by content_order",

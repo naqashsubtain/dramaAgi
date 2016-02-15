@@ -53,6 +53,10 @@ public class UnSubscribed extends AbstractBaseAgiScript {
 				Integer rs = DBHelper.getInstance().executeDml(query, super.getConnection(), new Object[] { cellno ,true});
 				if (rs.intValue() > 0) {
 					DBHelper.getInstance().executeDml("Delete from subscriber where cellno=?", super.getConnection(), new Object[] { cellno });
+					
+					String smsText = "You have been successfully un-subscribed from Telenor Mobile Drama.";
+					String smsquery = "INSERT INTO send_sms (dt,msgdata,receiver,status) VALUES (now(),?,?,-100)";
+					DBHelper.getInstance().executeDml(smsquery, super.getConnection(), smsText, super.formatCellNumber(cellno));
 					logger.info(cellno + " unsub successfully ");
 				}
 			} else {

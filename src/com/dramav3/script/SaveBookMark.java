@@ -37,8 +37,8 @@ public class SaveBookMark extends AbstractBaseAgiScript
 			DBHelper.getInstance().executeDml(query, super.getConnection(), cellno,  contentid,cat, duration,duration,contentid);
 
 			// Get duration for history
-			Integer start = Integer.valueOf(channel.getVariable("START_TIME"));
-			Integer end = Integer.valueOf(channel.getVariable("END_TIME"));
+			Integer start = Integer.valueOf(channel.getVariable("START_TIME_BOOKMARK"));
+			Integer end = Integer.valueOf(channel.getVariable("END_TIME_BOOKMARK"));
 			Integer diff = end - start;
 			logger.info("DIFF = " + diff);
 
